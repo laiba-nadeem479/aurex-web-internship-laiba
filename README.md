@@ -1,5 +1,3 @@
-﻿# My Project
-
 # Laiba Nadeem — IT Student
 
 A simple, semantic HTML-based personal profile website showcasing my background, technical skills, education, projects, and contact information.
