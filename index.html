@@ -6,6 +6,212 @@
     <title>Personal Portfolio</title>
 </head>
 <body>
-    
+    <!-- Header -->
+    <header>
+        <span>LN.</span>
+     <nav>
+        <ul>
+            <li><a href="#about">About Me</a> </li>
+            <li><a href="#skills">Skills</a> </li>
+            <li><a href="#Education">Education</a> </li>
+            <li><a href="Projects">Projects</a> </li>
+            <li><a href="#about">Contact</a> </li>
+        </ul>
+     </nav>
+
+     <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <img src="image.jpeg" height="200">
+                    <p>
+          Hello! My name is Laiba Nadeem. I am a detail-oriented Information
+          Technology undergraduate with hands-on academic
+          exposure to web development, database management, and version control.
+        </p>
+
+        <p>
+          I am skilled in HTML, CSS, JavaScript, SQL, and Git/GitHub, with a
+          strong foundation in problem-solving. I am seeking an entry-level IT
+          internship to apply my technical knowledge, contribute to real-world
+          projects, and grow within a collaborative, fast-paced technology
+          environment.
+        </p>
+
+        </section>
+
+      <!-- skills -->
+    <section id="skill">
+        <h2>Skills</h2>
+        <p class="section-sub">What I reach for when I'm building.</p>
+        <h3>Languages</h3>
+        <ul>
+            <li>Python</li>
+            <li>JavaScript</li>
+            <li>HTML5</li>
+            <li>CSS3</li>
+        </ul>
+        <h3>Frameworks & Libraries</h3>
+        <ul>
+            <li>React.js</li>
+            <li>Next.js</li>
+            <li>Tailwind CSS</li>
+        </ul>
+        <h3>Backend</h3>
+        <ul>
+            <li>Node.js</li>
+            <li>REST APIs</li>
+            <li>Flask</li>
+        </ul>
+        <h3>Database</h3>
+        <ul>
+            <li>MySql</li>
+        </ul>
+       <h3>Tools & Platforms</h3>
+        <ul>
+          <li>Git</li>
+          <li>GitHub</li>
+          <li>MS Office (Word, Excel, PowerPoint)</li>
+        </ul>
+         <h3>Soft Skills</h3>
+        <ul>
+          <li>Problem Solving & Critical Thinking</li>
+          <li>Communication & Active Listening</li>
+          <li>Time Management & Teamwork</li>
+          <li>Adaptability & Ability to Work Under Pressure</li>
+          <li>Quick Learner with a Positive, Growth-Oriented Attitude</li>
+        </ul>
+    </section>
+
+    <!-- education -->
+    <section id="education">
+        <h2>Education</h2>
+        <h3>Bachelor in Information Technology</h3>
+        <p>University of the Punjab (Affiliated)</p>
+
+        <h2>Certificate</h2>
+        <h3>Advanced Python Programming</h3>
+        <p>kics, UET Lahore</p>
+    </section>
+
+    <!-- Projects -->
+     <section id="projects">
+        <p> 2026 . Final Year Project</p>
+        <h3>QuizMaster</h3>
+        <p>
+              An online quiz management system with role-based panels for
+              admins, teachers and students.
+            </p>
+            <ul>
+              <li>
+                Admin, teacher and student panels with distinct permissions and
+                views
+              </li>
+              <li>
+                Timed quizzes with automatic scoring, progress tracking and
+                class-wise leaderboards
+              </li>
+              <li>
+                AI image generation for quiz questions, routed through a teacher
+                approval workflow
+              </li>
+              <li>
+                Node.js and MySQL backend managing users, quizzes, results and
+                performance analytics
+              </li>
+            </ul>
+            <ul>
+              <li>HTML5</li>
+              <li>CSS3</li>
+              <li>JavaScript</li>
+              <li>React.js</li>
+              <li>Node.js</li>
+              <li>MySQL</li>
+              <li>REST APIs</li>
+              <li>AI Image Generation API</li>
+            </ul>
+             <p>2026 .<a href="https://github.com/laiba-nadeem479/resume-analyzer" target="_blank">View on GitHub ↗</a></p>
+             <h3>ResumeAI</h3>
+            <p>
+              An AI-powered resume analyzer that scores, critiques and matches
+              resumes against job descriptions.
+            </p>
+            <ul>
+              <li>
+                Secure authentication and role-based access for job seekers and
+                admins
+              </li>
+              <li>
+                Resume upload with ATS scoring, skill gap analysis and
+                personalized AI feedback
+              </li>
+              <li>
+                Job Match feature comparing resumes against job descriptions to
+                generate match scores
+              </li>
+              <li>
+                Responsive user and admin dashboards with analytics, history
+                tracking and report generation
+              </li>
+            </ul>
+            <ul>
+              <li>Next.js</li>
+              <li>React.js</li>
+              <li>TypeScript</li> 
+              <li>Tailwind CSS</li>
+              <li>Node.js</li>
+              <li>MySQL</li>
+              <li>Prisma ORM</li>
+              <li>NextAuth.js</li>
+              <li>Zod</li>
+              </ul>
+ 
+     </section>
+
+     <!-- contact -->
+      <section id="contact">
+        <h2>Contact Me</h2>
+        <p>
+          I'm currently open to full stack and frontend roles, freelance
+          projects, and collaborations on AI-powered products.  </p>
+        <a href="https://www.linkedin.com/in/laiba-nadeem-707730362">LinkedIn</a>
+        <a href="https://github.com/laiba-nadeem479">Github</a>
+
+        <form action="#" method="post">
+          <p>
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required />
+          </p>
+
+          <p>
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required />
+          </p>
+
+          <p>
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" required />
+          </p>
+
+          <p>
+            <label for="message">Message:</label>
+            <br />
+            <textarea
+              id="message"
+              name="message"
+              rows="6"
+              cols="40"
+              required
+            ></textarea>
+          </p>
+
+          <button type="submit">Send Message</button>
+        </form>
+        
+      </section>
+     </main>
+
+      <footer>
+      <p>&copy; 2026 Laiba Nadeem. All rights reserved.</p>
+    </footer>
 </body>
 </html>
