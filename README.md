@@ -14,7 +14,7 @@ A modern, animated personal portfolio site built with **HTML5, CSS3, and vanilla
 
 ## 🔗 Live Deployment
 
-> **Live Link:** _[Add your GitHub Pages or Vercel link here before submitting]_
+> **Live Link:** https://aurex-web-internship-laiba.vercel.app/
 >
 > Example: `https://laiba-nadeem479.github.io/aurex-web-internship-laiba-nadeem/`
 
