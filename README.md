@@ -63,13 +63,11 @@ aurex-web-internship-laiba-nadeem/
 - [ ] Tablet screenshot added to `screenshots/`
 - [ ] Mobile screenshot added to `screenshots/`
 - [ ] Learning reflection completed below
-- [ ] Repo folder renamed to `aurex-web-internship-laiba-nadeem` (if not already)
 
 ---
 
 ## 📝 Key Learnings & Challenges
 
-_(Personalize this section with your own words before submitting — a couple of honest sentences per bullet is enough.)_
 
 - **Flexbox vs. Grid:** Learned when to reach for Flexbox (one-directional alignment — nav bars, button rows, tag lists) versus Grid (two-directional, card-based layouts — skills, projects, contact section).
 - **Mobile-first responsive design:** Started with a single-column mobile layout and added complexity at the `640px` and `1024px` breakpoints, rather than designing desktop-first and cramming it down — this made the small-screen layout much cleaner.
