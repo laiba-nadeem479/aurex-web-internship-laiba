@@ -10,16 +10,40 @@
   --accent-blue: #4a80c4;
   --accent-glow: #2f5d9c;
   --accent-amber: #d9a441;
+  --glass-bg: rgba(22, 28, 38, 0.55);
+  --glass-border: rgba(232, 237, 245, 0.08);
+  --shadow-color: rgba(0, 0, 0, 0.3);
   --font-display: "Fraunces", Georgia, serif;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: "JetBrains Mono", "Courier New", monospace;
   --max-width: 1120px;
-  --space-sm: 0.75rem;
-  --space-md: 1.5rem;
-  --space-lg: 3rem;
-  --space-xl: 5rem;
+  /* Fluid spacing scale — grows with viewport width instead of jumping at breakpoints */
+  --space-sm: clamp(0.65rem, 0.55rem + 0.4vw, 0.85rem);
+  --space-md: clamp(1.25rem, 1rem + 1vw, 1.6rem);
+  --space-lg: clamp(2.2rem, 1.7rem + 2vw, 3.2rem);
+  --space-xl: clamp(3rem, 2.2rem + 3.2vw, 5.2rem);
   --radius-sm: 3px;
   --radius-md: 6px;
+  --radius-lg: 14px;
+  color-scheme: dark;
+}
+
+/* ---------- Light theme (dark-mode foundations, inverted) ---------- */
+:root[data-theme="light"] {
+  --bg-deep: #f5f6f8;
+  --bg-surface: #ffffff;
+  --bg-card: #ffffff;
+  --border-subtle: #e2e6ee;
+  --text-primary: #1a2029;
+  --text-secondary: #4f5b6e;
+  --text-muted: #7c879a;
+  --accent-blue: #2f5d9c;
+  --accent-glow: #4a80c4;
+  --accent-amber: #b3791f;
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(26, 32, 41, 0.08);
+  --shadow-color: rgba(30, 40, 60, 0.12);
+  color-scheme: light;
 }
 
 /* ---------- Reset & base ---------- */
@@ -44,9 +68,10 @@ body {
     radial-gradient(circle at 20% 30%, rgba(47, 93, 156, 0.08) 0%, transparent 40%),
     radial-gradient(circle at 80% 70%, rgba(201, 138, 43, 0.04) 0%, transparent 45%);
   line-height: 1.6;
-  font-size: 16px;
+  font-size: clamp(15px, 0.9vw + 13px, 17px);
   min-height: 100vh;
   overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 img {
@@ -81,7 +106,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.15rem;
+  font-size: clamp(1.05rem, 0.95rem + 0.4vw, 1.2rem);
   font-weight: 600;
 }
 
@@ -152,6 +177,11 @@ h3 {
   box-shadow: 0 8px 20px rgba(74, 128, 196, 0.15);
 }
 
+/* Note: the .ripple-effect element itself is created by script.js on
+   click; its keyframe + positioning styles live in animations.css
+   alongside the other keyframe-driven rules, to keep layout (here)
+   separate from motion (there). */
+
 /* ---------- Header / Nav ---------- */
 .site-header {
   position: sticky;
@@ -167,13 +197,17 @@ h3 {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 1rem var(--space-md);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   position: relative;
+  /* Named grid areas: logo left, nav centered, theme + burger on the right */
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  grid-template-areas: "logo nav theme burger";
+  align-items: center;
+  column-gap: var(--space-sm);
 }
 
 .logo {
+  grid-area: logo;
   font-family: var(--font-display);
   font-size: 1.4rem;
   font-weight: 600;
@@ -186,9 +220,49 @@ h3 {
   color: var(--accent-blue);
 }
 
+.main-nav {
+  grid-area: nav;
+  justify-self: end;
+}
+
 .main-nav ul {
   display: flex;
   gap: var(--space-md);
+}
+
+/* ---------- Theme toggle (glassmorphism pill) ---------- */
+.theme-toggle {
+  grid-area: theme;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px var(--shadow-color);
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s ease,
+    box-shadow 0.25s ease;
+  z-index: 2;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px) rotate(-8deg);
+  border-color: rgba(74, 128, 196, 0.4);
+}
+
+.theme-toggle:active {
+  transform: translateY(0) scale(0.92);
+}
+
+.theme-toggle__icon {
+  font-size: 1rem;
+  line-height: 1;
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .main-nav a {
@@ -214,12 +288,14 @@ h3 {
 }
 
 .nav-toggle-label {
+  grid-area: burger;
   display: none;
   width: 28px;
   height: 20px;
   position: relative;
   cursor: pointer;
   z-index: 2;
+  justify-self: end;
 }
 
 .hamburger-line,
@@ -277,7 +353,7 @@ h3 {
 }
 
 .hero .lede {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 0.85rem + 0.5vw, 1.2rem);
   color: var(--text-primary);
   margin-bottom: var(--space-sm);
   max-width: 60ch;
@@ -297,10 +373,13 @@ h3 {
   margin-top: var(--space-md);
 }
 
-/* ---------- Skills ---------- */
+/* ---------- Skills ----------
+   Fluid grid: cards are never narrower than 220px; the browser
+   decides how many columns fit (auto-fit) and stretches remaining
+   space across them (minmax + 1fr) — no breakpoint math needed. */
 .skills-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.25rem;
 }
 
@@ -351,11 +430,16 @@ h3 {
   transform: translateY(-2px);
 }
 
-/* ---------- Projects ---------- */
+/* ---------- Projects: multi-column showcase/gallery ----------
+   auto-fit + minmax(320px, 1fr) means: fit as many 320px+ columns
+   as the row has room for, then share the leftover space equally.
+   One card per row on phones, two+ on wider screens, with no
+   media query required to make that decision. */
 .projects-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: var(--space-md);
+  align-items: start;
 }
 
 .project-card {
@@ -440,18 +524,25 @@ h3 {
   font-family: var(--font-mono);
 }
 
-/* ---------- Contact ---------- */
+/* ---------- Contact ----------
+   Named areas make the source order independent of the visual
+   order, and self-document which block sits where. */
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr;
+  grid-template-areas:
+    "links"
+    "form";
   gap: var(--space-lg);
 }
 
 .contact-links {
+  grid-area: links;
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-md);
   align-items: center;
+  align-content: start;
 }
 
 .contact-link {
@@ -471,6 +562,7 @@ h3 {
 }
 
 .contact-form {
+  grid-area: form;
   display: grid;
   gap: var(--space-sm);
 }
@@ -590,12 +682,9 @@ footer {
     padding: var(--space-xl) var(--space-lg);
   }
 
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .contact-grid {
     grid-template-columns: 1fr 1.4fr;
+    grid-template-areas: "links form";
     align-items: start;
   }
 }
@@ -611,16 +700,11 @@ footer {
   .hero-text {
     flex: 1;
   }
-
-  .skills-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-    align-items: start;
-  }
 }
+
+/* .skills-grid and .projects-grid intentionally have no breakpoint
+   overrides above — repeat(auto-fit, minmax(...)) already reflows
+   them fluidly at every width, which is the point of using it. */
 
 /* Small mobile nav collapse (< 640px) */
 @media (max-width: 639px) {

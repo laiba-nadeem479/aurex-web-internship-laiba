@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Laiba Nadeem — Full‑Stack Developer</title>
-    <!-- Google Fonts (same as original) -->
+    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,8 +15,11 @@
     <link rel="stylesheet" href="styles/animations.css" />
   </head>
   <body>
-    <!-- Mobile nav toggle (checkbox hack + JS enhanced) -->
+  
     <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+
+    <!-- Scroll progress indicator -->
+    <div class="scroll-progress" id="scrollProgress"></div>
 
     <!-- Header -->
     <header class="site-header">
@@ -24,14 +27,6 @@
         <a href="#" class="logo" aria-label="Home"
           >LN<span class="logo-dot">.</span></a
         >
-
-        <label
-          for="nav-toggle"
-          class="nav-toggle-label"
-          aria-label="Toggle navigation"
-        >
-          <span class="hamburger-line"></span>
-        </label>
 
         <nav class="main-nav" aria-label="Main navigation">
           <ul>
@@ -42,6 +37,24 @@
             <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
+
+        <button
+          type="button"
+          id="themeToggle"
+          class="theme-toggle"
+          aria-label="Switch to light theme"
+          aria-pressed="false"
+        >
+          <span class="theme-toggle__icon" aria-hidden="true">&#127769;</span>
+        </button>
+
+        <label
+          for="nav-toggle"
+          class="nav-toggle-label"
+          aria-label="Toggle navigation"
+        >
+          <span class="hamburger-line"></span>
+        </label>
       </div>
     </header>
 
@@ -64,8 +77,8 @@
             environment.
           </p>
           <div class="hero-actions fade-up delay-4">
-            <a href="#projects" class="btn btn-primary">See my work</a>
-            <a href="#contact" class="btn btn-outline">Get in touch</a>
+            <a href="#projects" class="btn btn-primary ripple">See my work</a>
+            <a href="#contact" class="btn btn-outline ripple">Get in touch</a>
           </div>
         </div>
       </section>
@@ -269,6 +282,7 @@
             class="contact-form fade-up"
             action="#"
             method="post"
+            novalidate
           >
             <div class="form-row">
               <label for="name">Full Name</label>
@@ -291,14 +305,10 @@
                 required
               ></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-primary ripple">
               Send Message
             </button>
-            <p class="form-feedback">
-              This is a static front‑end demo — the form isn't connected to a
-              backend yet, so messages aren't actually sent. Please email me
-              directly for now.
-            </p>
+            <p id="formFeedback" class="form-feedback" aria-live="polite"></p>
           </form>
         </div>
       </section>
@@ -314,5 +324,8 @@
         </p>
       </div>
     </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
   </body>
 </html>
