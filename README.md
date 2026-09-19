@@ -1,107 +1,88 @@
-# Laiba Nadeem — IT Student
+# Laiba Nadeem — Portfolio
 
-A simple, semantic HTML-based personal profile website showcasing my background, technical skills, education, projects, and contact information.
+A responsive personal portfolio website built with **pure HTML5 and CSS3 (Flexbox + Grid)** — no JavaScript — created for the **AUREX Full‑Stack Engineering Internship — Month 1, Week 2** (CSS3 Fundamentals + Modern Layouts + Basic UI/UX + Responsive Web Design).
 
-## About the Project
+---
 
-This project is a personal developer profile webpage created using **HTML5**. It is designed to present my academic background, technical skills, projects, and career interests in a clean and structured format.
+## 👤 Intern Information
 
-The website is intended to serve as an online introduction and portfolio for internship and entry-level IT opportunities.
+- **Full Name:** Laiba Nadeem
+- **Domain:** Web Development (Full‑Stack / Frontend)
+- **Week:** Week 2 — CSS3 Fundamentals, Flexbox & Grid, Responsive Web Design
 
-## Features
+---
 
-- Personal introduction and profile section
-- Technical and soft skills
-- Education history
-- Final Year Project and personal projects
-- Contact information
-- Contact form
-- Navigation links to different sections of the page
-- Semantic HTML structure
+## 🔗 Live Deployment
 
+> **Live Link:** _[Add your GitHub Pages or Vercel link here before submitting]_
+>
+> Example: `https://laiba-nadeem479.github.io/aurex-web-internship-laiba-nadeem/`
 
-## Technologies Used
+**To deploy on GitHub Pages:**
+1. Push this repo to GitHub.
+2. Go to **Settings → Pages**.
+3. Under "Build and deployment", set **Source: Deploy from a branch**, branch **main**, folder **/(root)**.
+4. Save — your live URL will appear at the top of that page within a minute or two.
+5. Paste that link above and in your submission.
 
-- **HTML5**
-- Semantic HTML elements
-- Basic HTML forms
-- HTML navigation and anchor links
+---
 
-## Sections
-
-### About Me
-
-Contains a brief introduction, academic background, technical interests, and career objective.
-
-### Skills
-
-Includes:
-
-- HTML5
-- CSS3
-- JavaScript
-- React.js
-- Next.js
-- Tailwind CSS
-- Python
-- SQL
-- MySQL
-- Git & GitHub
-- MS Office
-
-### Education
-
-- **BS Information Technology** — University of the Punjab
-
-### Projects
-
-#### QuizMaster - Online Quiz System
-
- An online quiz management system with role-based panels for admins, teachers and students using react.js and node.js.
-
-#### ResumeAI - AI Resume Analyzer
-
-An AI-powered resume analyzer that scores, critiques and matches resumes against job descriptions using react.js and node.js.
-
-## Project Structure
+## 📁 Project Structure
 
 ```text
-portfolio/
-│
+aurex-web-internship-laiba-nadeem/
 ├── index.html
+├── styles/
+│   ├── main.css          → Layout, design tokens, components, media queries
+│   └── animations.css    → Keyframes, entrance & micro-interactions (pure CSS)
+├── screenshots/           → Desktop, tablet, and mobile screenshots (add before submitting)
 └── README.md
 ```
 
-## How to Run
+---
 
-No installation or dependencies are required.
+## 🎨 CSS Features & Layout Techniques Implemented
 
-1. Clone or download the repository.
-2. Open the project folder.
-3. Open `index.html` in a web browser.
+- **CSS3 fundamentals:** custom properties (`:root` design tokens for color, spacing, typography), class/element/pseudo-class selectors, Google Fonts, gradients, background images.
+- **Box model:** consistent `box-sizing: border-box`, padding/margin scale (`--space-sm` → `--space-xl`), bordered cards with border-radius.
+- **Flexbox:** header/nav bar, hero layout, button groups, skill tag lists, contact links, footer content — used wherever content needs to align along one axis.
+- **CSS Grid:** skills grid, projects grid, and contact grid — used wherever content needs a responsive multi-column layout (`grid-template-columns: repeat(n, 1fr)`).
+- **Responsive design:** mobile-first CSS with `@media (min-width: 640px)` (tablet) and `@media (min-width: 1024px)` (desktop) breakpoints; a CSS-only hamburger menu (the "checkbox hack" — an `<input type="checkbox">` + `<label>` + `:checked` selector) for mobile navigation, with no JavaScript involved.
+- **UI/UX:** clear visual hierarchy (eyebrow → heading → body), consistent spacing scale, readable typography pairing (serif display font + sans body font), accent color used sparingly, hover/focus states on every interactive element.
+- **Pure CSS animations:** fade-up entrance animation on page load (`@keyframes` + `animation-delay` for staggered timing), hover-triggered underline sweeps, a pulsing timeline dot, and a subtle floating background glow — all done with `@keyframes` and transitions, no JavaScript.
+- **Native HTML5 form validation:** the contact form uses `required` and `type="email"` attributes so the browser itself validates input — no JavaScript needed.
+- **Accessibility:** `prefers-reduced-motion` media query disables animations for users who request reduced motion.
 
-Alternatively, you can use **VS Code with the Live Server extension** to preview the website.
+---
 
-## Future Improvements
+## ✅ Submission Checklist
 
-Possible improvements for future versions include:
+- [ ] GitHub repository updated with all CSS code
+- [ ] Live deployment link added above (GitHub Pages / Vercel)
+- [ ] Desktop screenshot added to `screenshots/`
+- [ ] Tablet screenshot added to `screenshots/`
+- [ ] Mobile screenshot added to `screenshots/`
+- [ ] Learning reflection completed below
+- [ ] Repo folder renamed to `aurex-web-internship-laiba-nadeem` (if not already)
 
-- Adding CSS for a more modern and responsive design
-- Adding JavaScript interactivity
-- Connecting the contact form to a backend
-- Adding project screenshots and live project links
-- Adding downloadable resume functionality
-- Deploying the website online
+---
 
+## 📝 Key Learnings & Challenges
 
-## Contact
+_(Personalize this section with your own words before submitting — a couple of honest sentences per bullet is enough.)_
 
-**Laiba Nadeem**
+- **Flexbox vs. Grid:** Learned when to reach for Flexbox (one-directional alignment — nav bars, button rows, tag lists) versus Grid (two-directional, card-based layouts — skills, projects, contact section).
+- **Mobile-first responsive design:** Started with a single-column mobile layout and added complexity at the `640px` and `1024px` breakpoints, rather than designing desktop-first and cramming it down — this made the small-screen layout much cleaner.
+- **The box model in practice:** Debugging spacing issues came down to consistently using `border-box` and a small set of spacing variables instead of one-off pixel values.
+- **Biggest challenge:** Building a fully working mobile navigation menu using only CSS (the checkbox + label + `:checked` "checkbox hack") instead of JavaScript's `addEventListener` — took some trial and error with `max-height` transitions to get the slide-down animation smooth.
+- **CSS-only animation:** Realized entrance animations don't need JavaScript at all — `@keyframes` combined with `animation-delay` gave the same staggered fade-up effect purely through CSS.
 
-Lahore, Punjab, Pakistan
-LinkedIn: [linkedin.com/in/laiba-nadeem](https://www.linkedin.com/in/laiba-nadeem-707730362)
-GitHub: [@laiba-nadeem479](https://github.com/laiba-nadeem479)
+---
 
-## For professional inquiries, please contact me through LinkedIn.
+## 🛠️ Tech Stack
 
-© 2026 Laiba Nadeem. All rights reserved.
+HTML5 · CSS3 (Flexbox, Grid, custom properties, media queries) — no JavaScript
+
+---
+
+&copy; 2026 Laiba Nadeem. All rights reserved.

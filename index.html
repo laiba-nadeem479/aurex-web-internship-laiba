@@ -3,38 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Laiba Nadeem — Portfolio</title>
+    <title>Laiba Nadeem — Full‑Stack Developer</title>
+    <!-- Google Fonts (same as original) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/animations.css" />
   </head>
   <body>
-    <!-- Mobile nav toggle (checkbox hack, no JS needed) -->
+    <!-- Mobile nav toggle (checkbox hack + JS enhanced) -->
     <input type="checkbox" id="nav-toggle" class="nav-toggle" />
 
     <!-- Header -->
-    <header>
+    <header class="site-header">
       <div class="header-inner">
-        <span class="logo">LN<span class="logo-dot">.</span></span>
+        <a href="#" class="logo" aria-label="Home"
+          >LN<span class="logo-dot">.</span></a
+        >
 
         <label
           for="nav-toggle"
           class="nav-toggle-label"
           aria-label="Toggle navigation"
         >
-          <span></span>
+          <span class="hamburger-line"></span>
         </label>
 
-        <nav>
+        <nav class="main-nav" aria-label="Main navigation">
           <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
-            <li><a href="#education">Education</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
@@ -42,38 +46,38 @@
     </header>
 
     <main>
-      <!-- About / Hero -->
-      <section id="about" class="hero">
+      <!-- ========== HERO / ABOUT ========== -->
+      <section id="about" class="hero section">
         <div class="hero-text">
-          <p class="eyebrow">Full-Stack Developer</p>
-          <h1>Laiba Nadeem</h1>
-          <p class="lede">
-            I'm a detail-oriented Information Technology undergraduate with
-            hands-on academic exposure to web development, database management,
+          <p class="eyebrow fade-up">Full‑Stack Developer</p>
+          <h1 class="fade-up delay-1">Laiba Nadeem</h1>
+          <p class="lede fade-up delay-2">
+            I'm a detail‑oriented Information Technology undergraduate with
+            hands‑on academic exposure to web development, database management,
             and version control.
           </p>
-          <p>
+          <p class="fade-up delay-3">
             I'm skilled in HTML, CSS, JavaScript, SQL, and Git/GitHub, with a
-            strong foundation in problem-solving. I'm seeking an entry-level IT
-            internship to apply my technical knowledge, contribute to real-world
-            projects, and grow within a collaborative, fast-paced technology
+            strong foundation in problem‑solving. I'm seeking an entry‑level IT
+            internship to apply my technical knowledge, contribute to real‑world
+            projects, and grow within a collaborative, fast‑paced technology
             environment.
           </p>
-          <div class="hero-actions">
+          <div class="hero-actions fade-up delay-4">
             <a href="#projects" class="btn btn-primary">See my work</a>
             <a href="#contact" class="btn btn-outline">Get in touch</a>
           </div>
         </div>
       </section>
 
-      <!-- Skills -->
-      <section id="skills">
-        <p class="section-index">01</p>
-        <h2>Skills</h2>
-        <p class="section-sub">What I reach for when I'm building.</p>
+      <!-- ========== SKILLS ========== -->
+      <section id="skills" class="section">
+        <p class="section-index fade-up">01</p>
+        <h2 class="fade-up">Skills</h2>
+        <p class="section-sub fade-up">What I reach for when I'm building.</p>
 
         <div class="skills-grid">
-          <div class="skill-card">
+          <div class="skill-card fade-up">
             <h3>Languages</h3>
             <ul class="tag-list">
               <li>Python</li>
@@ -82,8 +86,7 @@
               <li>CSS3</li>
             </ul>
           </div>
-
-          <div class="skill-card">
+          <div class="skill-card fade-up">
             <h3>Frameworks &amp; Libraries</h3>
             <ul class="tag-list">
               <li>React.js</li>
@@ -91,8 +94,7 @@
               <li>Tailwind CSS</li>
             </ul>
           </div>
-
-          <div class="skill-card">
+          <div class="skill-card fade-up">
             <h3>Backend</h3>
             <ul class="tag-list">
               <li>Node.js</li>
@@ -100,15 +102,13 @@
               <li>Flask</li>
             </ul>
           </div>
-
-          <div class="skill-card">
+          <div class="skill-card fade-up">
             <h3>Database</h3>
             <ul class="tag-list">
               <li>MySQL</li>
             </ul>
           </div>
-
-          <div class="skill-card">
+          <div class="skill-card fade-up">
             <h3>Tools &amp; Platforms</h3>
             <ul class="tag-list">
               <li>Git</li>
@@ -116,8 +116,7 @@
               <li>MS Office</li>
             </ul>
           </div>
-
-          <div class="skill-card">
+          <div class="skill-card fade-up">
             <h3>Soft Skills</h3>
             <ul class="tag-list">
               <li>Problem Solving</li>
@@ -130,35 +129,19 @@
         </div>
       </section>
 
-      <!-- Education -->
-      <section id="education">
-        <p class="section-index">02</p>
-        <h2>Education</h2>
-
-        <div class="timeline">
-          <div class="timeline-item">
-            <h3>Bachelor in Information Technology</h3>
-            <p class="timeline-meta">University of the Punjab (Affiliated)</p>
-          </div>
-
-          <div class="timeline-item">
-            <h3>Advanced Python Programming — Certificate</h3>
-            <p class="timeline-meta">KICS, UET Lahore</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Projects -->
-      <section id="projects">
-        <p class="section-index">03</p>
-        <h2>Projects</h2>
+      <!-- ========== PROJECTS (moved after Skills) ========== -->
+      <section id="projects" class="section">
+        <p class="section-index fade-up">02</p>
+        <h2 class="fade-up">Projects</h2>
+        <p class="section-sub fade-up">Selected work that I'm proud of.</p>
 
         <div class="projects-grid">
-          <article class="project-card">
+          <!-- Project 1 -->
+          <article class="project-card fade-up">
             <p class="project-year">2026 · Final Year Project</p>
             <h3>QuizMaster</h3>
             <p>
-              An online quiz management system with role-based panels for
+              An online quiz management system with role‑based panels for
               admins, teachers and students.
             </p>
             <ul class="project-points">
@@ -168,7 +151,7 @@
               </li>
               <li>
                 Timed quizzes with automatic scoring, progress tracking and
-                class-wise leaderboards
+                class‑wise leaderboards
               </li>
               <li>
                 AI image generation for quiz questions, routed through a teacher
@@ -191,7 +174,8 @@
             </ul>
           </article>
 
-          <article class="project-card">
+          <!-- Project 2 -->
+          <article class="project-card fade-up">
             <p class="project-year">
               2026 ·
               <a
@@ -203,12 +187,12 @@
             </p>
             <h3>ResumeAI</h3>
             <p>
-              An AI-powered resume analyzer that scores, critiques and matches
+              An AI‑powered resume analyzer that scores, critiques and matches
               resumes against job descriptions.
             </p>
             <ul class="project-points">
               <li>
-                Secure authentication and role-based access for job seekers and
+                Secure authentication and role‑based access for job seekers and
                 admins
               </li>
               <li>
@@ -239,46 +223,65 @@
         </div>
       </section>
 
-      <!-- Contact -->
-      <section id="contact">
-        <p class="section-index">04</p>
-        <h2>Contact Me</h2>
-        <p class="section-sub">
-          I'm currently open to full-stack and frontend roles, freelance
-          projects, and collaborations on AI-powered products.
+      <!-- ========== EDUCATION (moved after Projects) ========== -->
+      <section id="education" class="section">
+        <p class="section-index fade-up">03</p>
+        <h2 class="fade-up">Education</h2>
+        <p class="section-sub fade-up">Academic background & certifications.</p>
+
+        <div class="timeline">
+          <div class="timeline-item fade-up">
+            <h3>Bachelor in Information Technology</h3>
+            <p class="timeline-meta">University of the Punjab (Affiliated)</p>
+          </div>
+          <div class="timeline-item fade-up">
+            <h3>Advanced Python Programming — Certificate</h3>
+            <p class="timeline-meta">KICS, UET Lahore</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== CONTACT ========== -->
+      <section id="contact" class="section">
+        <p class="section-index fade-up">04</p>
+        <h2 class="fade-up">Contact Me</h2>
+        <p class="section-sub fade-up">
+          I'm currently open to full‑stack and frontend roles, freelance
+          projects, and collaborations on AI‑powered products.
         </p>
 
         <div class="contact-grid">
-          <div class="contact-links">
+          <div class="contact-links fade-up">
             <a
               href="https://www.linkedin.com/in/laiba-nadeem-707730362"
               target="_blank"
               rel="noopener"
               class="contact-link"
+              >LinkedIn ↗</a
             >
-              LinkedIn ↗
-            </a>
-            <a href="mailto:laibanadeem631@gmail.com" class="contact-link">
-              laibanadeem631@gmail.com
-            </a>
+            <a href="mailto:laibanadeem631@gmail.com" class="contact-link"
+              >laibanadeem631@gmail.com</a
+            >
           </div>
 
-          <form action="#" method="post" class="contact-form">
+          <form
+            id="contactForm"
+            class="contact-form fade-up"
+            action="#"
+            method="post"
+          >
             <div class="form-row">
               <label for="name">Full Name</label>
               <input type="text" id="name" name="name" required />
             </div>
-
             <div class="form-row">
               <label for="email">Email Address</label>
               <input type="email" id="email" name="email" required />
             </div>
-
             <div class="form-row">
               <label for="subject">Subject</label>
               <input type="text" id="subject" name="subject" required />
             </div>
-
             <div class="form-row">
               <label for="message">Message</label>
               <textarea
@@ -288,15 +291,28 @@
                 required
               ></textarea>
             </div>
-
-            <button type="submit" class="btn btn-primary">Send Message</button>
+            <button type="submit" class="btn btn-primary">
+              Send Message
+            </button>
+            <p class="form-feedback">
+              This is a static front‑end demo — the form isn't connected to a
+              backend yet, so messages aren't actually sent. Please email me
+              directly for now.
+            </p>
           </form>
         </div>
       </section>
     </main>
 
     <footer>
-      <p>&copy; 2026 Laiba Nadeem. All rights reserved.</p>
+      <div class="footer-content">
+        <p class="footer-email">
+          <a href="mailto:laibanadeem631@gmail.com">laibanadeem631@gmail.com</a>
+        </p>
+        <p class="footer-copy">
+          &copy; 2026 Laiba Nadeem. All rights reserved.
+        </p>
+      </div>
     </footer>
   </body>
 </html>
