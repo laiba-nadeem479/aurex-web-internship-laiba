@@ -1,0 +1,772 @@
+
+:root {
+  --bg-deep: #0b0e14;
+  --bg-surface: #11161f;
+  --bg-card: #161c26;
+  --border-subtle: #232a36;
+  --text-primary: #e8edf5;
+  --text-secondary: #9aa6b8;
+  --text-muted: #6b7a8f;
+  --accent-blue: #4a80c4;
+  --accent-glow: #2f5d9c;
+  --accent-amber: #d9a441;
+  --glass-bg: rgba(22, 28, 38, 0.55);
+  --glass-border: rgba(232, 237, 245, 0.08);
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+  --max-width: 1120px;
+  /* Fluid spacing scale — grows with viewport width instead of jumping at breakpoints */
+  --space-sm: clamp(0.65rem, 0.55rem + 0.4vw, 0.85rem);
+  --space-md: clamp(1.25rem, 1rem + 1vw, 1.6rem);
+  --space-lg: clamp(2.2rem, 1.7rem + 2vw, 3.2rem);
+  --space-xl: clamp(3rem, 2.2rem + 3.2vw, 5.2rem);
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 14px;
+  color-scheme: dark;
+}
+
+/* ---------- Light theme (dark-mode foundations, inverted) ---------- */
+:root[data-theme="light"] {
+  --bg-deep: #f5f6f8;
+  --bg-surface: #ffffff;
+  --bg-card: #ffffff;
+  --border-subtle: #e2e6ee;
+  --text-primary: #1a2029;
+  --text-secondary: #4f5b6e;
+  --text-muted: #7c879a;
+  --accent-blue: #2f5d9c;
+  --accent-glow: #4a80c4;
+  --accent-amber: #b3791f;
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(26, 32, 41, 0.08);
+  --shadow-color: rgba(30, 40, 60, 0.12);
+  color-scheme: light;
+}
+
+/* ---------- Reset & base ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background-color: var(--bg-deep);
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(47, 93, 156, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(201, 138, 43, 0.04) 0%, transparent 45%);
+  line-height: 1.6;
+  font-size: clamp(15px, 0.9vw + 13px, 17px);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--accent-blue);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #6b9fd8;
+}
+
+ul {
+  list-style: none;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: clamp(1.6rem, 4vw, 1.9rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: clamp(1.05rem, 0.95rem + 0.4vw, 1.2rem);
+  font-weight: 600;
+}
+
+.section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+}
+
+.section-index {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent-blue);
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-sm);
+  opacity: 0.8;
+}
+
+.section-sub {
+  color: var(--text-secondary);
+  max-width: 46ch;
+  margin-top: 0.4rem;
+  margin-bottom: var(--space-lg);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--text-primary);
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  overflow: hidden;
+  isolation: isolate;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn-primary {
+  background-color: var(--accent-glow);
+  border-color: var(--accent-glow);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-blue);
+  border-color: var(--accent-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(74, 128, 196, 0.25);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--text-primary);
+  border-color: var(--text-secondary);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(74, 128, 196, 0.15);
+}
+
+/* Note: the .ripple-effect element itself is created by script.js on
+   click; its keyframe + positioning styles live in animations.css
+   alongside the other keyframe-driven rules, to keep layout (here)
+   separate from motion (there). */
+
+/* ---------- Header / Nav ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba(11, 14, 20, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem var(--space-md);
+  position: relative;
+  /* Named grid areas: logo left, nav centered, theme + burger on the right */
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  grid-template-areas: "logo nav theme burger";
+  align-items: center;
+  column-gap: var(--space-sm);
+}
+
+.logo {
+  grid-area: logo;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  z-index: 2;
+}
+
+.logo-dot {
+  color: var(--accent-blue);
+}
+
+.main-nav {
+  grid-area: nav;
+  justify-self: end;
+}
+
+.main-nav ul {
+  display: flex;
+  gap: var(--space-md);
+}
+
+/* ---------- Theme toggle (glassmorphism pill) ---------- */
+.theme-toggle {
+  grid-area: theme;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px var(--shadow-color);
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s ease,
+    box-shadow 0.25s ease;
+  z-index: 2;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px) rotate(-8deg);
+  border-color: rgba(74, 128, 196, 0.4);
+}
+
+.theme-toggle:active {
+  transform: translateY(0) scale(0.92);
+}
+
+.theme-toggle__icon {
+  font-size: 1rem;
+  line-height: 1;
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.main-nav a {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  padding: 0.3rem 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  letter-spacing: 0.02em;
+  position: relative;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: var(--accent-blue);
+  border-color: var(--accent-blue);
+}
+
+/* Mobile nav toggle */
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  grid-area: burger;
+  display: none;
+  width: 28px;
+  height: 20px;
+  position: relative;
+  cursor: pointer;
+  z-index: 2;
+  justify-self: end;
+}
+
+.hamburger-line,
+.hamburger-line::before,
+.hamburger-line::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: var(--text-primary);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  border-radius: 1px;
+}
+
+.hamburger-line {
+  top: 9px;
+}
+
+.hamburger-line::before {
+  content: "";
+  top: -8px;
+}
+
+.hamburger-line::after {
+  content: "";
+  top: 8px;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  padding-top: var(--space-lg);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent-blue);
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  margin-bottom: var(--space-md);
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--text-primary) 0%, #b8c8e0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero .lede {
+  font-size: clamp(1rem, 0.85rem + 0.5vw, 1.2rem);
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+  max-width: 60ch;
+  opacity: 0.92;
+}
+
+.hero p {
+  margin-bottom: var(--space-sm);
+  max-width: 60ch;
+  color: var(--text-secondary);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: var(--space-md);
+}
+
+/* ---------- Skills ----------
+   Fluid grid: cards are never narrower than 220px; the browser
+   decides how many columns fit (auto-fit) and stretches remaining
+   space across them (minmax + 1fr) — no breakpoint math needed. */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.skill-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-top: 2px solid var(--accent-blue);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.skill-card:hover {
+  border-color: rgba(74, 128, 196, 0.4);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
+}
+
+.skill-card h3 {
+  margin-bottom: 0.9rem;
+  color: var(--text-primary);
+  font-size: 1.05rem;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag-list li {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  padding: 0.3rem 0.7rem;
+  border-radius: 2px;
+  letter-spacing: 0.02em;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.tag-list li:hover {
+  background-color: rgba(74, 128, 196, 0.1);
+  border-color: rgba(74, 128, 196, 0.3);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
+/* ---------- Projects: multi-column showcase/gallery ----------
+   auto-fit + minmax(320px, 1fr) means: fit as many 320px+ columns
+   as the row has room for, then share the leftover space equally.
+   One card per row on phones, two+ on wider screens, with no
+   media query required to make that decision. */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-md);
+  align-items: start;
+}
+
+.project-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  padding: var(--space-lg) var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-radius: var(--radius-md);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.project-card:hover {
+  border-color: rgba(74, 128, 196, 0.35);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  transform: translateY(-6px);
+}
+
+.project-year {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-amber);
+  letter-spacing: 0.04em;
+}
+
+.project-year a {
+  color: var(--accent-blue);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.project-year a:hover {
+  border-color: var(--accent-blue);
+}
+
+.project-points {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding-left: 1.1rem;
+  list-style: disc;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.project-points li::marker {
+  color: var(--accent-blue);
+}
+
+/* ---------- Education / timeline ---------- */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  position: relative;
+}
+
+.timeline-item {
+  padding-left: var(--space-md);
+  border-left: 2px solid var(--accent-glow);
+  position: relative;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-blue);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(74, 128, 196, 0.5);
+  animation: pulseDot 2.4s ease-in-out infinite;
+}
+
+.timeline-meta {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+  font-family: var(--font-mono);
+}
+
+/* ---------- Contact ----------
+   Named areas make the source order independent of the visual
+   order, and self-document which block sits where. */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "links"
+    "form";
+  gap: var(--space-lg);
+}
+
+.contact-links {
+  grid-area: links;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  align-items: center;
+  align-content: start;
+}
+
+.contact-link {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  border-bottom: 1.5px solid var(--accent-blue);
+  padding-bottom: 0.2rem;
+  letter-spacing: 0.02em;
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.contact-link:hover {
+  border-color: #6b9fd8;
+  color: #6b9fd8;
+  transform: translateX(4px);
+}
+
+.contact-form {
+  grid-area: form;
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-row label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.form-row input,
+.form-row textarea {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  resize: vertical;
+}
+
+.form-row input::placeholder,
+.form-row textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 2px rgba(74, 128, 196, 0.2);
+}
+
+.form-row input.invalid,
+.form-row textarea.invalid {
+  border-color: #c4544a;
+  box-shadow: 0 0 0 2px rgba(196, 84, 74, 0.2);
+}
+
+.contact-form .btn {
+  justify-self: start;
+  margin-top: 0.5rem;
+}
+
+.form-feedback {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  min-height: 1.2em;
+  margin-top: 0.25rem;
+  transition: color 0.2s ease;
+}
+
+.form-feedback.success {
+  color: #6ec48a;
+}
+
+.form-feedback.error {
+  color: #e07a70;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  padding: var(--space-lg) var(--space-md);
+  border-top: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  background-color: rgba(11, 14, 20, 0.6);
+}
+
+.footer-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.footer-email a {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--accent-blue);
+  letter-spacing: 0.03em;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.footer-email a:hover {
+  color: #6b9fd8;
+  border-color: #6b9fd8;
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+/* ============================================================
+   Responsive breakpoints (mobile-first)
+   Tablet: >= 640px   |   Desktop: >= 1024px
+   ============================================================ */
+@media (min-width: 640px) {
+  .section {
+    padding: var(--space-xl) var(--space-lg);
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr 1.4fr;
+    grid-template-areas: "links form";
+    align-items: start;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: var(--space-xl);
+  }
+
+  .hero-text {
+    flex: 1;
+  }
+}
+
+/* .skills-grid and .projects-grid intentionally have no breakpoint
+   overrides above — repeat(auto-fit, minmax(...)) already reflows
+   them fluidly at every width, which is the point of using it. */
+
+/* Small mobile nav collapse (< 640px) */
+@media (max-width: 639px) {
+  .nav-toggle-label {
+    display: block;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(11, 14, 20, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-subtle);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 0;
+    padding: 0.5rem var(--space-md) 1rem;
+  }
+
+  .main-nav a {
+    display: block;
+    padding: 0.8rem 0;
+    font-size: 0.95rem;
+  }
+
+  .nav-toggle:checked ~ .site-header .main-nav {
+    max-height: 400px;
+  }
+
+  /* Hamburger → X animation */
+  .nav-toggle:checked ~ .site-header .hamburger-line {
+    background: transparent;
+  }
+
+  .nav-toggle:checked ~ .site-header .hamburger-line::before {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .nav-toggle:checked ~ .site-header .hamburger-line::after {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
